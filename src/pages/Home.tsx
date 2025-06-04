@@ -8,11 +8,6 @@ const Home = () => {
     setIsVisible(true)
   }, [])
 
-  const scrollToContent = () => {
-    const element = document.getElementById('content-section')
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <div className="home">
       {/* Section Hero avec image de Rio */}
@@ -20,20 +15,9 @@ const Home = () => {
         <div className="hero-content">
           <h1 className={`hero-title ${isVisible ? 'fade-in' : ''}`}>
             Bienvenue à Rio
-          </h1>
-          <p className={`hero-subtitle ${isVisible ? 'fade-in delayed' : ''}`}>
+          </h1>          <p className={`hero-subtitle ${isVisible ? 'fade-in delayed' : ''}`}>
             Découvrez la Cidade Maravilhosa
-          </p>          <button 
-            className={`scroll-button ${isVisible ? 'fade-in delayed-2' : ''}`}
-            onClick={scrollToContent}
-            aria-label="Défiler vers le contenu"
-          >
-            <div className="scroll-arrows">
-              <span>❯</span>
-              <span>❯</span>
-              <span>❯</span>
-            </div>
-          </button>
+          </p>
         </div>
         <div className="hero-overlay"></div>
       </section>
