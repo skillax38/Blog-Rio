@@ -2,81 +2,110 @@ import { useState } from 'react'
 import './Photos.css'
 
 const Photos = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   const photos = [
     {
       id: 1,
       title: "Christ Rédempteur",
       category: "monuments",
-      description: "Vue panoramique du Christ Rédempteur au coucher du soleil"
+      description: "Vue panoramique du Christ Rédempteur au coucher du soleil",
+      image: "https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       id: 2,
       title: "Plage de Copacabana",
       category: "plages",
-      description: "L'emblématique plage de Copacabana avec ses 4 km de sable doré"
-    },
-    {
+      description: "L'emblématique plage de Copacabana avec ses 4 km de sable doré",
+      image: "src/assets/copacabana.jpeg"
+    },    {
       id: 3,
       title: "Pain de Sucre",
       category: "monuments",
-      description: "Le célèbre Pain de Sucre depuis la baie de Guanabara"
+      description: "Le célèbre Pain de Sucre depuis la baie de Guanabara",
+      image: "/src/assets/paindesucre.jpeg"
     },
     {
       id: 4,
       title: "Quartier de Santa Teresa",
       category: "quartiers",
-      description: "Street art coloré dans les rues bohèmes de Santa Teresa"
-    },
-    {
+      description: "Street art coloré dans les rues bohèmes de Santa Teresa",
+      image: "/src/assets/santatheresa.jpeg"
+    },    {
       id: 5,
       title: "Plage d'Ipanema",
       category: "plages",
-      description: "Coucher de soleil magique sur la plage d'Ipanema"
+      description: "Coucher de soleil magique sur la plage d'Ipanema",
+      image: "/src/assets/ipanema.jpeg"
     },
     {
       id: 6,
-      title: "Escaliers de Selarón",
-      category: "art",
-      description: "Les célèbres escaliers colorés de l'artiste Jorge Selarón"
+      title: "Maracana",
+      category: "sport",
+      description: "L'Estadio Maracanã, temple du football brésilien",
+      image: "/src/assets/maracana.jpeg"
     },
     {
       id: 7,
       title: "Cathédrale Métropolitaine",
       category: "monuments",
-      description: "Architecture moderne de la cathédrale de Rio"
+      description: "Architecture moderne de la cathédrale de Rio",
+      image: "/src/assets/catedrale.jpg"
     },
     {
       id: 8,
       title: "Lapa",
       category: "quartiers",
-      description: "Vie nocturne animée dans le quartier de Lapa"
+      description: "Vie nocturne animée dans le quartier de Lapa",
+      image: "/src/assets/lapa-rio.jpg"
     },
     {
       id: 9,
       title: "Jardin Botanique",
       category: "nature",
-      description: "Palmiers royaux dans le magnifique jardin botanique"
+      description: "Palmiers royaux dans le magnifique jardin botanique",
+      image: "/src/assets/jardin-botanique.jpg"
     },
     {
       id: 10,
       title: "Plage de Barra da Tijuca",
       category: "plages",
-      description: "Longue plage sauvage de Barra da Tijuca"
+      description: "Longue plage sauvage de Barra da Tijuca",
+      image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       id: 11,
       title: "Forêt de Tijuca",
       category: "nature",
-      description: "Randonnée dans la plus grande forêt urbaine du monde"
+      description: "Randonnée dans la plus grande forêt urbaine du monde",
+      image: "/src/assets/foret-tijuca.jpg"    
     },
     {
-      id: 12,
-      title: "Carnaval de Rio",
-      category: "culture",
-      description: "L'explosion de couleurs du célèbre Carnaval de Rio"
-    }
+      id: 13,
+      title: "Escaliers de Selarón",
+      category: "art",
+      description: "Les authentiques escaliers colorés de Jorge Selarón - Photo personnelle",
+      image: "/src/assets/escalier-selaron.jpeg"
+    },
+    {
+      id: 14,
+      title: "Arraial do Cabo",
+      category: "plages",
+      description: "Les eaux cristallines d'Arraial do Cabo, surnommé les Caraïbes brésiliennes",
+      image: "/src/assets/arrial-do-cabo.jpeg"
+    },
+    {
+      id: 15,
+      title: "Ilha Grande",
+      category: "nature",
+      description: "Excursion en bateau vers la magnifique Ilha Grande",
+      image: "/src/assets/ihlagrande.jpeg"
+    },
+    { id: 16,
+      title: "Pria Vermelha",
+      category: "plages",
+      description: "La plage cachée de Pria Vermelha, un joyau secret de Rio",
+      image: "/src/assets/praiavermelha.jpeg"}
   ]
 
   const categories = [
@@ -124,11 +153,17 @@ const Photos = () => {
       {/* Photo Gallery */}
       <section className="gallery">
         <div className="container">
-          <div className="photos-grid">
-            {filteredPhotos.map((photo) => (
+          <div className="photos-grid">            {filteredPhotos.map((photo) => (
               <div key={photo.id} className="photo-card">
-                <div className="photo-placeholder">
-                  <span className="photo-title">{photo.title}</span>
+                <div className="photo-image">
+                  <img 
+                    src={photo.image} 
+                    alt={photo.title}
+                    loading="lazy"
+                  />
+                  <div className="photo-overlay">
+                    <span className="photo-title">{photo.title}</span>
+                  </div>
                 </div>
                 <div className="photo-info">
                   <h3>{photo.title}</h3>

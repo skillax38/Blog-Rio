@@ -26,9 +26,11 @@ const Footer = () => {
               <li>Ipanema</li>
             </ul>
           </div>
-        </div>
-        <div className="footer-bottom">
+        </div>        <div className="footer-bottom">
           <p>&copy; 2025 Rio Blog. Découvrez la beauté du Brésil.</p>
+          <p className="made-with-love">
+            Fait avec <span className="heart">❤️</span> par Axel Messaoudi
+          </p>
         </div>
       </div>
     </footer>
